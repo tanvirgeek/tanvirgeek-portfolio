@@ -47,7 +47,7 @@ const portfolioProjects = [
 
 export const ProjectsSection = () => {
   return (
-    <section className="pb-16">
+    <section className="pb-16 lg:py-24">
       <div className="container">
         <div className="flex justify-center">
           <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-200 to-sky-400 text-transparent bg-clip-text">
@@ -55,52 +55,60 @@ export const ProjectsSection = () => {
           </p>
         </div>
 
-        <h2 className="font-serif text-3xl text-center mt-6">
+        <h2 className="font-serif text-3xl md:text-5xl text-center mt-6">
           Featured Projects
         </h2>
-        <p className="text-center text-white/60 mt-4">
+        <p className="text-center text-white/60 mt-4 md:text-lg lg:text-xl max-w-md mx-auto">
           See how I transformed concepts into engaging digital experiences
         </p>
         <div className="flex flex-col gap-20 mt-10">
           {portfolioProjects.map((project) => (
             <div
               key={project.title}
-              className="bg-gray-800 rounded-3xl relative z-0 overflow-hidden outline outline-2 outline-white/20 px-8 pt-8"
+              className="bg-gray-800 rounded-3xl relative z-0 overflow-hidden outline outline-2 outline-white/20 px-8 pt-8 md:pt-12 lg:pt-16 md:px-10 lg:px-20"
             >
               <div
                 className="absolute inset-0 -z-10 opacity-5"
                 style={{ backgroundImage: `url(${GrainImage.src})` }}
               ></div>
-              <div className="bg-gradient-to-r from-emerald-300 to-sky-400 inline-flex font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
-                <span>{project.company}</span>
-                <span>&bull;</span>
-                <span>{project.year}</span>
-              </div>
-              <h3 className="font-serif text-2xl mt-2">{project.title}</h3>
-              <hr className="border-t-2 border-e-white/5 mt-4" />
-              <ul className="flex flex-col gap-4 mt-4">
-                {project.results.map((result) => (
-                  <li
-                    key={result.title}
-                    className="flex gap-2 text-sm text-white/50"
-                  >
-                    <CheckCircleIcon className="size-5" />
-                    <span>{result.title}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="lg:grid lg:grid-cols-2 lg:gap-16">
+                <div className="lg:pb-16">
+                  <div className="bg-gradient-to-r from-emerald-300 to-sky-400 inline-flex font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
+                    <span>{project.company}</span>
+                    <span>&bull;</span>
+                    <span>{project.year}</span>
+                  </div>
+                  <h3 className="font-serif text-2xl mt-2 md:mt-5">
+                    {project.title}
+                  </h3>
+                  <hr className="border-t-2 border-e-white/5 mt-4" />
+                  <ul className="flex flex-col gap-4 mt-4 md:mt-5">
+                    {project.results.map((result) => (
+                      <li
+                        key={result.title}
+                        className="flex gap-2 text-sm md:text-base text-white/50"
+                      >
+                        <CheckCircleIcon className="size-5 md:size-6" />
+                        <span>{result.title}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-              <a href={project.link}>
-                <button className="bg-white text-gray-950 h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8">
-                  <ArrowUpRight className="size-4" />
-                  <span>Visit Live Site</span>
-                </button>
-              </a>
-              <Image
-                src={project.image}
-                alt={project.title}
-                className="mt-8 -mb-4"
-              />
+                  <a href={project.link}>
+                    <button className="bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8">
+                      <ArrowUpRight className="size-4" />
+                      <span>Visit Live Site</span>
+                    </button>
+                  </a>
+                </div>
+                <div className="relative">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
+                  />
+                </div>
+              </div>
             </div>
           ))}
         </div>

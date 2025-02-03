@@ -1,7 +1,7 @@
 import Image from "next/image";
 import memojiImage from "@/assets/images/memoji-computer.png";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
-import grainImage from "@/assets/images/grain.jpg";
+import GrainImage from "@/assets/images/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
 import HeroOrbit from "@/components/HeroOrbit";
@@ -13,7 +13,7 @@ export const HeroSection = () => {
         <div
           className="absolute inset-0 -z-30 opacity-10"
           style={{
-            backgroundImage: `url(${grainImage.src})`,
+            backgroundImage: `url(${GrainImage.src})`,
           }}
         ></div>
         <div className="size-[620px] hero-ring"></div>
